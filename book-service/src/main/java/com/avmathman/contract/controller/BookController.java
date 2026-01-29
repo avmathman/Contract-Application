@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 public class BookController {
 
     @GetMapping("/{id}")
-    public BookDto getBook(@PathVariable Long id) {
-        return new BookDto(id, "Clean Code", "Robert Martin");
+    public ResponseEntity<BookDto> getBook(@PathVariable Long id) {
+        return new ResponseEntity<>(new BookDto(id, "Clean Code", "Robert Martin"), HttpStatus.OK);
     }
 
     @PostMapping
