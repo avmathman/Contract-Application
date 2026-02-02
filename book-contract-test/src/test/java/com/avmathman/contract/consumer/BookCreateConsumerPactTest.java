@@ -16,7 +16,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(PactConsumerTestExt.class)
-@PactTestFor(providerName = "book-service")
+@PactTestFor(providerName = "book-service-create")
 public class BookCreateConsumerPactTest {
 
     @Pact(consumer = "future-ui")

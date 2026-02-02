@@ -6,20 +6,19 @@ import au.com.dius.pact.provider.junitsupport.Provider;
 import au.com.dius.pact.provider.junitsupport.State;
 import au.com.dius.pact.provider.junitsupport.loader.PactFolder;
 import au.com.dius.pact.provider.spring.junit5.PactVerificationSpringProvider;
-import com.avmathman.contract.BookServiceApplication;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 
-@Provider("book-service")
+@Provider("book-service-create")
 @PactFolder("target/pacts")
 @SpringBootTest(
-        classes = BookServiceApplication.class,
+        classes = com.avmathman.contract.BookServiceApplication.class,
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )
-public class BookProviderPactTest {
+public class BookCreateProviderPactTest {
 
     @LocalServerPort
     int port;
@@ -35,11 +34,6 @@ public class BookProviderPactTest {
         context.verifyInteraction();
     }
 
-    @State("book with id 1 exists")
-    void setupBook() {
-        // Insert into DB or mock service if needed
-    }
-
-    @State("invalid book payload")
-    void setupValidationError() {}
+    @State("book can be created")
+    void setupCreateBook() {}
 }
