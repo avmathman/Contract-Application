@@ -19,8 +19,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @ExtendWith(PactConsumerTestExt.class)
-@PactTestFor(providerName = "book-service")
-public class BookValidationConsumerPactTest {
+@PactTestFor(providerName = "book-service", port = "0")
+public class BookValidationConsumerPactTest extends BookBasePactTest {
 
     @Pact(consumer = "future-ui")
     public V4Pact validationErrorPact(PactBuilder builder) {

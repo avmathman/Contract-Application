@@ -14,8 +14,8 @@ import org.springframework.web.client.RestTemplate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(PactConsumerTestExt.class)
-@PactTestFor(providerName = "book-service")
-public class BookConsumerPactTest {
+@PactTestFor(providerName = "book-service", port = "0")
+public class BookConsumerPactTest extends BookBasePactTest {
 
     @Pact(consumer = "future-ui")
     public V4Pact getBookPact(PactBuilder builder) {
